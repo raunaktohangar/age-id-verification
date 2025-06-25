@@ -1,20 +1,38 @@
 //updated code
 import React, { useState } from 'react';
-
+import { useEffect } from 'react';
 import VerificationResult from './VerificationResult';
 import FileUpload from './FileUpload';
 import SelfieCapture from './SelfieCapture';
 
 function VerificationApp() {
-  
-
-
-
-
   const [aadharImage, setAadharImage] = useState(null);
   const [selfieImage, setSelfieImage] = useState(null);
   const [dob, setDOB] = useState('');
   const [confidence, setConfidence] = useState(null);
+
+  //https request
+  useEffect(() => {
+    if (aadharImage && selfieImage) {
+      fetch('http://localhost:5000/verify', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          aadharImage: aadharImage,
+          selfieImage: selfieImage,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setDOB(data.extractedDOB);
+          setConfidence(data.confidence);
+        })
+        .catch((err) => console.error('API Error:', err));
+    }
+  }, [aadharImage, selfieImage]); // Ye tab chale jab dono images mil jayein
+
 
   const handleAadharUpload = (e) => {
     const file = e.target.files[0];

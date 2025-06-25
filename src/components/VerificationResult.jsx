@@ -34,10 +34,10 @@ const VerificationResult = ({ extractedDOB, confidence }) => {
         </p>
 
         <div className="text-left text-sm text-gray-700 space-y-2 mb-6">
-          <div className="flex justify-between">
+          {/* <div className="flex justify-between">
             <span>Extracted DOB</span>
             <span>{extractedDOB || 'N/A'}</span>
-          </div>
+          </div> */}
           <div className="flex justify-between">
             <span>Age</span>
             <span>{age} years</span>
