@@ -12,6 +12,7 @@ A web-based proof-of-concept system that verifies a user’s **age and identity*
 
 - ⚛️ React (with Vite)
 - 🎨 Tailwind CSS
+- Flask for Backend
 - 📸 Webcam & File Upload APIs
 - 🧠 Placeholder logic for Face Matching & OCR (mocked for POC)
 - 🖼 Image preview and match scoring
@@ -30,9 +31,10 @@ A web-based proof-of-concept system that verifies a user’s **age and identity*
 ---
 
 ## 📸 demo video link 
+https://drive.google.com/file/d/1VrxHqkkdLlxZimWe3RmxbOQjLG5uBIHe/view?usp=drive_link
 
-
-
+## ppt link
+https://drive.google.com/file/d/1JvWY1wxSXVs4DJOmAEfWgCoUcSWjPwk5/view?usp=drive_link
 ---
 
 ## 📂 Folder Structure
