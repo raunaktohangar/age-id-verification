@@ -1,9 +1,16 @@
+//updated code
 import React, { useState } from 'react';
+
+import VerificationResult from './VerificationResult';
 import FileUpload from './FileUpload';
 import SelfieCapture from './SelfieCapture';
-import ResultCard from './ResultCard';
 
 function VerificationApp() {
+  
+
+
+
+
   const [aadharImage, setAadharImage] = useState(null);
   const [selfieImage, setSelfieImage] = useState(null);
   const [dob, setDOB] = useState('');
@@ -14,21 +21,26 @@ function VerificationApp() {
     if (file) {
       const imgURL = URL.createObjectURL(file);
       setAadharImage(imgURL);
-      setDOB('2000-01-01'); // Simulated DOB
-      setConfidence(Math.floor(Math.random() * 50) + 50); // Simulated confidence
+
+      // Simulate DOB extraction and confidence from Aadhar
+      setDOB('2000-01-01'); // later will be extracted via OCR
+      setConfidence(Math.floor(Math.random() * 50) + 50); // 50–100%
     }
   };
 
   const handleSelfieCapture = (imgData) => {
     setSelfieImage(imgData);
+
+    // Update confidence after matching (simulated)
     setConfidence(Math.floor(Math.random() * 50) + 50);
   };
 
   return (
+    
     <div
       className="min-h-screen bg-cover bg-center bg-no-repeat px-4 py-10 flex items-center justify-center"
       style={{
-        backgroundImage: "url('/download.jpeg')", // full page background
+        backgroundImage: "url('/download.jpeg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -36,9 +48,9 @@ function VerificationApp() {
       }}
     >
       <div className="bg-white/90 backdrop-blur-md border border-gray-200 shadow-xl rounded-2xl p-6 w-full max-w-6xl grid md:grid-cols-2 gap-6">
-
-        {/* Left: Upload + Selfie */}
+        {/* Left Column */}
         <div className="space-y-6">
+          {/* Aadhar Upload */}
           <div>
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Upload Aadhar</h2>
             <div className="border-2 border-dashed border-gray-300 rounded-xl p-6 flex flex-col items-center justify-center bg-white hover:bg-gray-100 transition">
@@ -59,6 +71,7 @@ function VerificationApp() {
             </div>
           </div>
 
+          {/* Selfie Capture */}
           <div className="text-center">
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Capture Selfie</h2>
             <SelfieCapture onCapture={handleSelfieCapture} />
@@ -66,24 +79,22 @@ function VerificationApp() {
           </div>
         </div>
 
-        {/* Right: Static Vertical Image */}
+        {/* Right: Static Vertical Reference Image */}
         <div className="flex items-center justify-center">
           <img
-            src="/download.jpeg" // 
+            src="/download.jpeg"
             alt="Reference Aadhar"
             className="rounded-xl shadow-lg object-contain h-[400px] w-auto"
           />
         </div>
       </div>
 
-      {/* Result Card */}
+      {/* Verification Result Section */}
       {aadharImage && selfieImage && (
         <div className="w-full max-w-4xl mt-10 z-10">
-          <ResultCard
+          <VerificationResult
             extractedDOB={dob}
             confidence={confidence}
-            selfieImg={selfieImage}
-            docImg={aadharImage}
           />
         </div>
       )}
@@ -92,5 +103,6 @@ function VerificationApp() {
 }
 
 export default VerificationApp;
+
 
 
