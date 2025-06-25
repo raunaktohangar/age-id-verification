@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import Webcam from 'react-webcam';
 import { useNavigate } from 'react-router-dom';
-
+import ruledImg from '../assets/rules.jpeg'; 
 function FileUploadForm({ onResult }) {
   const [aadharFile, setAadharFile] = useState(null);
   const [selfieBlob, setSelfieBlob] = useState(null);
@@ -59,6 +59,7 @@ function FileUploadForm({ onResult }) {
         formData,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       );
+      console.log(response.data);
       if (onResult) onResult(response.data);
       alert('Upload successful!');
     } catch (error) {
@@ -77,16 +78,16 @@ function FileUploadForm({ onResult }) {
   ];
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 w-full justify-center">
+    <div className="flex flex-col md:flex-row gap-8 w-full justify-center bg-gradient-to-br from-blue-200 via-purple-300 to-blue-200  min-h-screen py-10 px-2 md:px-6">
       {/* Left: Form */}
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-8"
+        className="w-full max-w-lg bg-blue-50 rounded-xl shadow-md p-6 flex flex-col gap-6"
       >
-        <h2 className="text-2xl font-semibold text-teal-900 mb-2">Submit Document</h2>
+        <h2 className="text-xl font-semibold text-teal-900 mb-2">Submit Document</h2>
         {/* Upload Foto Section */}
         <div>
-          <h3 className="text-lg font-semibold text-teal-800 mb-4">Upload Photo</h3>
+          <h3 className="text-lg font-semibold text-teal-800 mb-4">Upload ID</h3>
           <div
             className={`border-2 border-dashed rounded-xl flex flex-col items-center justify-center p-8 bg-gray-50 transition ${
               dragActive ? 'border-teal-500 bg-teal-50' : 'border-gray-300'
@@ -114,7 +115,7 @@ function FileUploadForm({ onResult }) {
                 on your computer
               </div>
               <div className="flex justify-between w-full text-xs text-gray-400 mt-2">
-                <span>Supported Formats: PNG, JPG</span>
+                <span>Supported Formats: .png, .jpg, .jpeg   </span>
                 <span>Maximum size: 20 MB</span>
               </div>
               {aadharFile && (
@@ -128,7 +129,6 @@ function FileUploadForm({ onResult }) {
         {/* Divider */}
         <div className="flex items-center my-2">
           <div className="flex-grow border-t border-gray-300"></div>
-          <span className="mx-4 text-gray-400 font-semibold">atau</span>
           <div className="flex-grow border-t border-gray-300"></div>
         </div>
         {/* Capture photo Section */}
@@ -197,13 +197,19 @@ function FileUploadForm({ onResult }) {
         </div>
       </form>
       {/* Right: Selfie Rules */}
-      <div className="w-full max-w-sm bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-4 self-start">
+      <div className="w-full max-w-sm bg-blue-50 rounded-2xl shadow-lg p-8 flex flex-col gap-4 self-start">
         <h3 className="text-xl font-semibold text-teal-800 mb-2">Selfie Capture Rules</h3>
         <ul className="list-disc pl-5 text-gray-700 text-sm space-y-2">
           {selfieRules.map((rule, idx) => (
             <li key={idx}>{rule}</li>
           ))}
         </ul>
+
+        <img
+    src={ruledImg} // <-- replace with your image path
+    alt="Selfie Example"
+    className="mt-8 rounded-xl border shadow object-cover w-full"
+  />
       </div>
     </div>
   );

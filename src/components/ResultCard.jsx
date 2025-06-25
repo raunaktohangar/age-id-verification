@@ -1,12 +1,12 @@
 import React from 'react';
+import VerificationResult from './VerificationResult';
 
 const ResultCard = ({ extractedDOB, confidence, selfieImg, docImg }) => {
   return (
     <div className="p-4 bg-gray-100 rounded-lg shadow-md">
       <h2 className="text-xl font-bold mb-2">Verification Result</h2>
       <p><strong>Extracted DOB:</strong> {extractedDOB}</p>
-      <p><strong>Age Status:</strong> {getAgeStatus(extractedDOB)}</p>
-      <p><strong>Face Match Score:</strong> {confidence}%</p>
+      <VerificationResult extractedDOB={extractedDOB} confidence={confidence} />
       <div className="flex gap-4 mt-4">
         <div>
           <p className="font-semibold">Selfie</p>
@@ -19,13 +19,6 @@ const ResultCard = ({ extractedDOB, confidence, selfieImg, docImg }) => {
       </div>
     </div>
   );
-};
-
-const getAgeStatus = (dob) => {
-  if (!dob) return 'Unknown';
-  const birthDate = new Date(dob);
-  const age = new Date().getFullYear() - birthDate.getFullYear();
-  return age >= 18 ? '✅ 18+ Verified' : '❌ Underage';
 };
 
 export default ResultCard;
