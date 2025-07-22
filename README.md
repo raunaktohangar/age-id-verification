@@ -31,7 +31,7 @@ A web-based proof-of-concept system that verifies a user’s **age and identity*
 ---
 
 ## 📸 demo video link 
-https://drive.google.com/file/d/1VrxHqkkdLlxZimWe3RmxbOQjLG5uBIHe/view?usp=drive_link
+https://github.com/user-attachments/assets/3cd31a29-c5cd-4a67-a772-4a48e3e3154e
 
 ## ppt link
 https://drive.google.com/file/d/1JvWY1wxSXVs4DJOmAEfWgCoUcSWjPwk5/view?usp=drive_link
