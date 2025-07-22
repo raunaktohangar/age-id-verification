@@ -101,7 +101,7 @@ Then visit: [http://localhost:5173](http://localhost:5173)
 
 ## 📌 Do’s and Don’ts for Selfie Upload
 
-![Dos and Don'ts Guide](./path-to-dos-and-donts-image.png)
+![Dos and Don'ts Guide] https://github.com/user-attachments/assets/3ed5500c-3540-4a5e-bc88-f01e3c32358c
 
 ---
 
