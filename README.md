@@ -30,7 +30,7 @@ A web-based proof-of-concept system that verifies a user’s **age and identity*
 
 ---
 
-## 📸 demo video link 
+## 📸 Demo Video
 https://github.com/user-attachments/assets/3cd31a29-c5cd-4a67-a772-4a48e3e3154e
 
 ## ppt link
@@ -101,7 +101,7 @@ Then visit: [http://localhost:5173](http://localhost:5173)
 
 ## 📌 Do’s and Don’ts for Selfie Upload
 
-![Dos and Don'ts Guide] https://github.com/user-attachments/assets/3ed5500c-3540-4a5e-bc88-f01e3c32358c
+https://github.com/user-attachments/assets/3ed5500c-3540-4a5e-bc88-f01e3c32358c
 
 ---
 
@@ -122,6 +122,9 @@ This app is built for **educational and demonstration** purposes only. It is **n
 ## 👨‍💻 Author
 
 * [Raunak Tohangar](https://github.com/raunaktohangar)
+* [Pulak Srivastava](https://github.com/PulakS004)
+* [Kshama](https://github.com/Kshama0015)
+* [Ishika]()
 
 ---
 
